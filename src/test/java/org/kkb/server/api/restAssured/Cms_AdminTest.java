@@ -12,13 +12,13 @@ import static com.jayway.restassured.path.json.JsonPath.with;
  * ws.wang
  */
 public class Cms_AdminTest {
-    private static final String token=TestConfig.getToken("/kauth/authorize?uid=239&cid=www&tenant_id=0");
+    private static final String token=TestConfig.getToken("/kauth/authorize?uid=239&cid=www&tenant_id=0");//e7c1ed7c5088b4b692ec03f1f09d8873
     private String userId;
     /**
      * 创建管理员
      * */
     @Test
-    public void testAddAdminUsers(){
+    public void testA(){
         //token无权限
         String str1="{\"user_email\":\"swangtest3@163.com\",\"type\":\"SystemAdmin\",\"access_token\":\"26ff6a00c9a6fcdb67db048fb164184a\",\"sub_type\":\"admin\",\"tenant_ids\":[1,2]}";
         JSONObject jsonObject1=JSONObject.fromObject(str1);
@@ -62,21 +62,25 @@ public class Cms_AdminTest {
 
          userId=String.valueOf(with(response5.body().asString()).get("data.user_id"));
     }
+    /**
+     * 修改
+     * */
     @Test
-    public void testDeleteAdminUsers(){
-        //没有输入token
-        Response response1= TestConfig.getOrDeleteExecu("delete", "/admin_users/0");
+     public void testB(){
+        String str1="{\"user_id\":"+userId+",\"access_token\":\"e7c1ed7c5088b4b692ec03f1f09d8873\",\"tenant_ids\":[2,9]}";
+        JSONObject jsonObject1=JSONObject.fromObject(str1);
+
+        Response response1= TestConfig.postOrPutExecu("put", "/admin_users", jsonObject1);
         response1.then().
-                assertThat().statusCode(400).
-                body("message", Matchers.equalTo("请输入access_token"));
-        //删除
-        Response response2= TestConfig.getOrDeleteExecu("delete", "/admin_users/"+userId+"?access_token="+token);
-        response2.then().
                 assertThat().statusCode(200).
-                body("message", Matchers.equalTo("success"));
+                body("data.tenants.name", Matchers.hasItems("广东第二师范学院"));
     }
+
+     /**
+     * 获取
+     * */
     @Test
-    public void testGetAdminUsers(){
+    public void testC(){
         //没有输入token
         Response response1= TestConfig.getOrDeleteExecu("get", "/admin_users");
         response1.then().
@@ -89,11 +93,44 @@ public class Cms_AdminTest {
                 assertThat().statusCode(401).
                 body("message", Matchers.equalTo("无效的access_token"));
 
-        //普通用户
+        /**
+         * token:内部系统管理员
+         * */
         Response response3= TestConfig.getOrDeleteExecu("get", "/admin_users?access_token=26ff6a00c9a6fcdb67db048fb164184a");
         response3.then().
                 assertThat().statusCode(200).
                 body("data.type", Matchers.hasItems("SystemAdmin","TenantAdmin")).
-                body("data.sub_type",Matchers.hasItems("super_admin",""));
+                body("data.user_username", Matchers.hasItems("swangtest3"));
+
+    }
+    /**
+     * 删除管理员
+     * */
+    @Test
+    public void testE(){
+        //没有输入token
+        Response response1= TestConfig.getOrDeleteExecu("delete", "/admin_users/0");
+        response1.then().
+                assertThat().statusCode(400).
+                body("message", Matchers.equalTo("请输入access_token"));
+        //删除
+        Response response2= TestConfig.getOrDeleteExecu("delete", "/admin_users/"+userId+"?access_token="+token);
+        response2.then().
+                assertThat().statusCode(200).
+                body("message", Matchers.equalTo("success"));
+    }
+
+    /**
+     *根据Uid 获取管理员信息
+     * */
+    @Test
+    public void testD(){
+        Response response1= TestConfig.getOrDeleteExecu("get", "/admin_users/0");
+        response1.then().
+                assertThat().statusCode(400).
+                body("message", Matchers.equalTo("请输入access_token"));
+        Response response2= TestConfig.getOrDeleteExecu("get", "/admin_users/"+userId+"?access_token="+token);
+        response2.then().
+                assertThat().statusCode(200).body("data.user_username",Matchers.is("swangtest3"));
     }
 }
