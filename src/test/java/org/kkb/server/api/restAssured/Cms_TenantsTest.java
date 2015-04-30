@@ -16,24 +16,24 @@ import static org.hamcrest.Matchers.*;
  */
 public class Cms_TenantsTest {
     //6044e1f0adfc2001194c2088d98964fa
-    private static final String token= TestConfig.getToken();
+    private static final String token= TestConfig.getToken("kauth/authorize?uid=812277&cid=www&tenant_id=0");
     /**
      * 获取租户管理员
      * class：Cms_TenantResource:getTenantAdminUser
      * */
     @Test
     public void testAdminUser(){
-        Response response=getExecu("tenants/1/tenant_admins?access_token=6044e1f0adfc2001194c");
+        Response response=TestConfig.getOrDeleteExecu("get","tenants/1/tenant_admins?access_token=6044e1f0adfc2001194c");
         response.then().
                 assertThat().statusCode(401).
                 body("message",equalTo("无效的access_token"));
 
-        Response response1=getExecu("tenants/1/tenant_admins");
+        Response response1=TestConfig.getOrDeleteExecu("get","tenants/1/tenant_admins");
         response1.then().
                 assertThat().statusCode(400).
                 body("message",equalTo("请输入access_token"));
 
-        Response response2=getExecu("tenants/1/tenant_admins?access_token="+token);
+        Response response2=TestConfig.getOrDeleteExecu("get","tenants/1/tenant_admins?access_token="+token);
         response2.then().
                 assertThat().statusCode(200).
                 body("message",equalTo("success")).
@@ -46,17 +46,17 @@ public class Cms_TenantsTest {
      * */
     @Test
     public void testTenantsRoles(){
-        Response response=getExecu("tenants/1/tenants_roles?access_token=6044e1f0adfc2001194c");
+        Response response=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_roles?access_token=6044e1f0adfc2001194c");
         response.then().
                 assertThat().statusCode(401).
                 body("message",equalTo("无效的access_token"));
 
-        Response response1=getExecu("tenants/1/tenants_roles");
+        Response response1=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_roles");
         response1.then().
                 assertThat().statusCode(400).
                 body("message",equalTo("请输入access_token"));
 
-        Response response2=getExecu("tenants/1/tenants_roles?access_token="+token);
+        Response response2=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_roles?access_token="+token);
         response2.then().log().all().
                 assertThat().statusCode(200).
                 body("message",equalTo("success")).
@@ -71,23 +71,23 @@ public class Cms_TenantsTest {
      * */
     @Test
     public void testTenantsRoleById(){
-        Response response=getExecu("tenants/1/tenants_roles/1?access_token=6044e1f0adfc2001194c");
+        Response response=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_roles/1?access_token=6044e1f0adfc2001194c");
         response.then().
                 assertThat().statusCode(401).
                 body("message",equalTo("无效的access_token"));
 
-        Response response1=getExecu("tenants/1/tenants_roles/1");
+        Response response1=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_roles/1");
         response1.then().
                 assertThat().statusCode(400).
                 body("message",equalTo("请输入access_token"));
 
-        Response response2=getExecu("tenants/1/tenants_roles/20000?access_token="+token);
+        Response response2=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_roles/20000?access_token="+token);
         response2.then().
                 assertThat().statusCode(200).
                 body("message",equalTo("success"));
                 //body("data",isEmptyString());
 
-        Response response3=getExecu("tenants/1/tenants_roles/1?access_token="+token);
+        Response response3=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_roles/1?access_token="+token);
         response3.then().
                 assertThat().statusCode(200).
                 body("message",equalTo("success")).
@@ -99,17 +99,17 @@ public class Cms_TenantsTest {
      * */
     @Test
     public void testGetTenants(){
-        Response response=getExecu("tenants?access_token=6044e1f0adfc2001194c");
+        Response response=TestConfig.getOrDeleteExecu("get","tenants?access_token=6044e1f0adfc2001194c");
         response.then().
                 assertThat().statusCode(401).
                 body("message",equalTo("无效的access_token"));
 
-        Response response1=getExecu("tenants");
+        Response response1=TestConfig.getOrDeleteExecu("get","tenants");
         response1.then().
                 assertThat().statusCode(400).
                 body("message",equalTo("请输入access_token"));
 
-        Response response2=getExecu("tenants?access_token=6044e1f0adfc2001194c2088d98964fa");
+        Response response2=TestConfig.getOrDeleteExecu("get","tenants?access_token=6044e1f0adfc2001194c2088d98964fa");
         response2.then().
                 assertThat().statusCode(200).
                 body("message",equalTo("success")).
@@ -122,17 +122,17 @@ public class Cms_TenantsTest {
      * */
     @Test
     public void testGetTenantsCourses(){
-        Response response=getExecu("tenants/1/courses?access_token=6044e1f0adfc2001194c");
+        Response response=TestConfig.getOrDeleteExecu("get","tenants/1/courses?access_token=6044e1f0adfc2001194c");
         response.then().
                 assertThat().statusCode(401).
                 body("message",equalTo("无效的access_token"));
 
-        Response response1=getExecu("tenants/1/courses");
+        Response response1=TestConfig.getOrDeleteExecu("get","tenants/1/courses");
         response1.then().
                 assertThat().statusCode(400).
                 body("message",equalTo("请输入access_token"));
 
-        Response response2=getExecu("tenants/1/courses?access_token=6044e1f0adfc2001194c2088d98964fa");
+        Response response2=TestConfig.getOrDeleteExecu("get","tenants/1/courses?access_token=6044e1f0adfc2001194c2088d98964fa");
         response2.then().
                 assertThat().statusCode(200).
                 body("message", equalTo("success")).
@@ -148,32 +148,23 @@ public class Cms_TenantsTest {
      * */
     @Test
     public void testGetTenantsPermissionFunctions(){
-        Response response=getExecu("tenants/1/tenants_permission_functions?access_token=6044e1f0adfc2001194c");
+        Response response=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_permission_functions?access_token=6044e1f0adfc2001194c");
         response.then().
                 assertThat().statusCode(401).
                 body("message",equalTo("无效的access_token"));
 
-        Response response1=getExecu("tenants/1/tenants_permission_functions");
+        Response response1=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_permission_functions");
         response1.then().
                 assertThat().statusCode(400).
                 body("message",equalTo("请输入access_token"));
 
-        Response response2=getExecu("tenants/1/tenants_permission_functions?access_token=6044e1f0adfc2001194c2088d98964fa");
+        Response response2=TestConfig.getOrDeleteExecu("get","tenants/1/tenants_permission_functions?access_token=6044e1f0adfc2001194c2088d98964fa");
         response2.then().
                 assertThat().statusCode(200).
                 body("message", equalTo("success")).
                 body("data.name", Matchers.hasItems("内容管理", "课程建设", "数据分析", "数据分析"));
     }
 
-     private static Response getExecu(String url){
-        RequestSpecification requestSpecification= TestConfig.requestSpecification().contentType(ContentType.JSON);
 
-        Response response=requestSpecification.when()
-                .get(url);
-        return response;
-    }
-    private static Response postOrPutExecu(String url){
-       return null;
-    }
 
 }

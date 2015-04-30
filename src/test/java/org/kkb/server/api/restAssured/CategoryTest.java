@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
  * 分类--测试
  */
 public class CategoryTest {
-    private static final String token= TestConfig.getToken();
+    private static final String token= TestConfig.getToken("kauth/authorize?uid=812277&cid=www&tenant_id=0");
     /**
      * 无效的token
      * */
