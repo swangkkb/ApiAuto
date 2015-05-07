@@ -33,7 +33,7 @@ public class LoginTest {
        Response response=requestSpecification.when()
                 .post("/users/login");
        response.then().assertThat().statusCode(200)
-               .body("name",equalTo("王爽"));
+               .body("name",equalTo("就这样吧"));
    }
     /**
      * 验证错误的用户名

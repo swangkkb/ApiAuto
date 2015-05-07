@@ -30,7 +30,7 @@ public class ZhaoZuoTest {
                 .post("/users/login").
         then().log().all()
                 .assertThat().statusCode(200)
-                .body("name",equalTo("王爽"));
+                .body("name",equalTo("就这样吧"));
     }
     @Test
     public void blosedCourse(){

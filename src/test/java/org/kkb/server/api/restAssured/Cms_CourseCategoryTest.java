@@ -20,7 +20,7 @@ public class Cms_CourseCategoryTest {
     public void testCategory(){
 
         RequestSpecification requestSpecification=given()
-                .baseUri("http://w.api-f3.kaikeba.cn").and()
+                .baseUri("http://release-api.kaikeba.cn").and()
                 .header("ContentType","application/json")
                 .port(80);
 
@@ -39,7 +39,7 @@ public class Cms_CourseCategoryTest {
     @Test
     public void testCategoyCourse(){
         RequestSpecification requestSpecification=given()
-                .baseUri("http://w.api-f3.kaikeba.cn").and()
+                .baseUri("http://release-api.kaikeba.cn").and()
                 .header("ContentType","application/json")
                 .port(80);
 
@@ -58,7 +58,7 @@ public class Cms_CourseCategoryTest {
     @Test
     public void testTrend(){
         RequestSpecification requestSpecification=given()
-                .baseUri("http://w.api-f3.kaikeba.cn").and()
+                .baseUri("http://release-api.kaikeba.cn").and()
                 .header("ContentType","application/json")
                 .port(80);
 
@@ -80,7 +80,7 @@ public class Cms_CourseCategoryTest {
     public void testSearch(){
         //当tenantId不存在的时候，查询开课吧的信息
         RequestSpecification requestSpecification=given()
-                .baseUri("http://w.api-f3.kaikeba.cn").and()
+                .baseUri("http://release-api.kaikeba.cn").and()
                 .header("ContentType","application/json")
                 .port(80);
 
@@ -110,7 +110,7 @@ public class Cms_CourseCategoryTest {
     @Test
     public void testRec(){
         RequestSpecification requestSpecification=given()
-                .baseUri("http://w.api-f3.kaikeba.cn").and()
+                .baseUri("http://release-api.kaikeba.cn").and()
                 .header("ContentType","application/json")
                 .port(80);
 
@@ -134,7 +134,7 @@ public class Cms_CourseCategoryTest {
     @Test
     public void testSchool(){
         RequestSpecification requestSpecification=given()
-                .baseUri("http://w.api-f3.kaikeba.cn").and()
+                .baseUri("http://release-api.kaikeba.cn").and()
                 .header("ContentType","application/json")
                 .port(80);
 
@@ -157,7 +157,7 @@ public class Cms_CourseCategoryTest {
     @Test
     public void testTenantsInfo(){
         RequestSpecification requestSpecification=given()
-                .baseUri("http://w.api-f3.kaikeba.cn").and()
+                .baseUri("http://release-api.kaikeba.cn").and()
                 .header("ContentType","application/json")
                 .port(80);
 
