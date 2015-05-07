@@ -88,7 +88,7 @@
             <version>9.1-901-1.jdbc4</version>
         </dependency>
 
-        <!--<dependency>
+        <dependency>
             <groupId>com</groupId>
             <artifactId>json-schema-validator</artifactId>
             <version>2.3.4</version>
@@ -97,7 +97,24 @@
             <groupId>com.github.fge</groupId>
             <artifactId>json-schema-validator</artifactId>
             <version>2.2.5</version>
-        </dependency>-->
+        </dependency>
+        <dependency>
+            <groupId>apache-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>apache-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>apache-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.1</version>
+        </dependency>
 
         <dependency>
             <groupId>com.jayway.restassured</groupId>
