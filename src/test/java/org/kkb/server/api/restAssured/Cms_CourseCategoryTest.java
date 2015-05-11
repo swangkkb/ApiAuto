@@ -16,7 +16,6 @@ public class Cms_CourseCategoryTest {
     /**
      *获取租户的所拥有的分类信息
      * */
-    @Test
     public void testCategory(){
 
         RequestSpecification requestSpecification=given()
@@ -36,7 +35,6 @@ public class Cms_CourseCategoryTest {
     /**
      * 获取分类下的课程
      * */
-    @Test
     public void testCategoyCourse(){
         RequestSpecification requestSpecification=given()
                 .baseUri("http://release-api.kaikeba.cn").and()
@@ -55,7 +53,6 @@ public class Cms_CourseCategoryTest {
      * 获取开课吧推荐课程
      * */
 
-    @Test
     public void testTrend(){
         RequestSpecification requestSpecification=given()
                 .baseUri("http://release-api.kaikeba.cn").and()
@@ -107,7 +104,6 @@ public class Cms_CourseCategoryTest {
     /**
      * 高校邦推荐课程
      * */
-    @Test
     public void testRec(){
         RequestSpecification requestSpecification=given()
                 .baseUri("http://release-api.kaikeba.cn").and()
@@ -131,7 +127,6 @@ public class Cms_CourseCategoryTest {
     /**
      * 高校邦门户改造：校园风光
      * */
-    @Test
     public void testSchool(){
         RequestSpecification requestSpecification=given()
                 .baseUri("http://release-api.kaikeba.cn").and()
@@ -154,7 +149,6 @@ public class Cms_CourseCategoryTest {
     /**
      * 获取租户的基本信息
      * */
-    @Test
     public void testTenantsInfo(){
         RequestSpecification requestSpecification=given()
                 .baseUri("http://release-api.kaikeba.cn").and()
