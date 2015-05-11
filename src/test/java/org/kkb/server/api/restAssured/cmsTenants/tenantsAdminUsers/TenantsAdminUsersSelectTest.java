@@ -2,15 +2,9 @@ package org.kkb.server.api.restAssured.cmsTenants.tenantsAdminUsers;
 
 import com.jayway.restassured.response.Response;
 import org.hamcrest.Matchers;
-import org.kkb.server.api.TestB;
 import org.kkb.server.api.TestConfig;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.util.Map;
-
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasItems;
 
 /**
  * ws.wang
