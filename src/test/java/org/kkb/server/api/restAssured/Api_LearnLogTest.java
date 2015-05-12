@@ -42,7 +42,5 @@ public class Api_LearnLogTest {
                 body("data.course_name", Matchers.hasItems("编程入门基础")).
                 body("data.size", Matchers.lessThan(5));
 
-        //当classId正确，school_code正确
-
     }
 }
