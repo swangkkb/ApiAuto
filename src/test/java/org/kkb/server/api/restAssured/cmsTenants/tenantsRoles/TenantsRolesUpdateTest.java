@@ -57,8 +57,8 @@ public class TenantsRolesUpdateTest {
         String str="{\"access_token\":\""+token+"\",\"name\":\"wsTestAddRoles\",\"tenants_permission_function_ids\":[111]}";
         JSONObject jsonObject = JSONObject.fromObject(str);
         Response response = TestConfig.postOrPutExecu("put", "/tenants/1/tenants_roles/"+rolesId, jsonObject);
-        response.then().log().all().
-                assertThat().statusCode(200).body("data.tenants_permission_functions.id", Matchers.hasItems(3));
+        response.then().
+                assertThat().statusCode(200).body("data.tenants_permission_functions.id", Matchers.hasItems(111));
     }
 
 

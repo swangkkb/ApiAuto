@@ -9,7 +9,7 @@ import static com.jayway.restassured.RestAssured.given;
 import static com.jayway.restassured.path.json.JsonPath.with;
 
 /**
- * Created by pc on 15-4-20.
+ * ws.wang
  */
 public class TestConfig {
 
