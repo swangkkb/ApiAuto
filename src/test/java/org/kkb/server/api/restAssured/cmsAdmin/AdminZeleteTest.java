@@ -26,7 +26,11 @@ public class AdminZeleteTest {
     }
     //token 没有权限
     public void testWithuthority(){
-
+        String userId=String.valueOf(AdminAddTest.userId);
+        Response response2 = TestConfig.getOrDeleteExecu("delete", "/admin_users/" + userId + "?access_token=asdfasdf13452fasdf");
+        response2.then().
+                assertThat().statusCode(401).
+                body("message", Matchers.equalTo("success"));
     }
     //删除成功
     public void testSuc(){

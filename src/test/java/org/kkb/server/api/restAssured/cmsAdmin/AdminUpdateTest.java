@@ -17,13 +17,26 @@ public class AdminUpdateTest {
 
     //token失效
     public void  testWithErrorToken(){
+        String userId=String.valueOf(AdminAddTest.userId);
+        String str1="{\"user_id\":"+userId+",\"access_token\":\"12412fsdfasdt2446\",\"tenant_ids\":[2,9]}";
 
+        JSONObject jsonObject1 = JSONObject.fromObject(str1);
+
+        Response response1 = TestConfig.postOrPutExecu("put", "/admin_users", jsonObject1);
+        response1.then().log().all().
+                assertThat().statusCode(401);
     }
     //token 缺失
     public void testWithNoToken(){
+        String userId=String.valueOf(AdminAddTest.userId);
+        String str1="{\"user_id\":"+userId+",\"tenant_ids\":[2,9]}";
 
+        JSONObject jsonObject1 = JSONObject.fromObject(str1);
+
+        Response response1 = TestConfig.postOrPutExecu("put", "/admin_users", jsonObject1);
+        response1.then().log().all().
+                assertThat().statusCode(400);
     }
-
 
     public  void testSuc(){
         String userId=String.valueOf(AdminAddTest.userId);
