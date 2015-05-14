@@ -29,8 +29,7 @@ public class AdminZeleteTest {
         String userId=String.valueOf(AdminAddTest.userId);
         Response response2 = TestConfig.getOrDeleteExecu("delete", "/admin_users/" + userId + "?access_token=asdfasdf13452fasdf");
         response2.then().
-                assertThat().statusCode(401).
-                body("message", Matchers.equalTo("success"));
+                assertThat().statusCode(401);
     }
     //删除成功
     public void testSuc(){

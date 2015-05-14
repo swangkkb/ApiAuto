@@ -35,7 +35,7 @@ public class ActivateTest {
     }
     //缺少参数
     public void testWithNoParam(){
-        String jsonStr="{\"access_token\":\""+TestConfig.getToken("kauth/authorize?uid=929244&cid=www")+"\",\"no\":\"835721919@qq.com\",\"school_id\":7,\"course_id\":164,\"lms_course_id\":384,\"lms_type\":\"kaikeba\",\"validate_type\": \"credit\"}";
+        String jsonStr="{\"access_token\":\""+TestConfig.getToken("kauth/authorize?uid=929244&cid=www")+"\" ,\"school_id\":7,\"course_id\":164,\"lms_course_id\":384,\"lms_type\":\"kaikeba\",\"validate_type\": \"credit\"}";
         JSONObject jsonObject=JSONObject.fromObject(jsonStr);
         Response response = TestConfig.postOrPutExecu("post", "/students/activate", jsonObject);
         response.then().
