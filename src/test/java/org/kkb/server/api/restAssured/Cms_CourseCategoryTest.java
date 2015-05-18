@@ -12,7 +12,7 @@ import static com.jayway.restassured.RestAssured.given;
  * ws.wang
  *
  */
-@Test
+//@Test
 public class Cms_CourseCategoryTest {
     /**
      *获取租户的所拥有的分类信息
@@ -20,7 +20,7 @@ public class Cms_CourseCategoryTest {
     public void testCategory(){
 
         RequestSpecification requestSpecification=given()
-                .baseUri("http://release-api.kaikeba.cn").and()
+                .baseUri("http://w.api-f3.kaikeba.cn").and()
                 .header("ContentType","application/json")
                 .port(80);
 
@@ -56,7 +56,7 @@ public class Cms_CourseCategoryTest {
 
     public void testTrend(){
         RequestSpecification requestSpecification=given()
-                .baseUri("http://release-api.kaikeba.cn").and()
+                .baseUri("http://w.api-f3.kaikeba.cn").and()
                 .header("ContentType","application/json")
                 .port(80);
 
