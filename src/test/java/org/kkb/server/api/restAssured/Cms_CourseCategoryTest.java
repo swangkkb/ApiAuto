@@ -12,6 +12,7 @@ import static com.jayway.restassured.RestAssured.given;
  * ws.wang
  *
  */
+@Test
 public class Cms_CourseCategoryTest {
     /**
      *获取租户的所拥有的分类信息
@@ -73,7 +74,6 @@ public class Cms_CourseCategoryTest {
      * 当传递tenantId 的时候，返回租户的课程信息
      * 当不传递tenantId的时候，返回开课吧的课程信息
      * */
-    @Test
     public void testSearch(){
         //当tenantId不存在的时候，查询开课吧的信息
         RequestSpecification requestSpecification=given()

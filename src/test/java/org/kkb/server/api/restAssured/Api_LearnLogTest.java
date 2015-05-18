@@ -16,10 +16,7 @@ public class Api_LearnLogTest {
      * 更新学习log
      * */
 
-    @Test
-    public void testAddLog(){
 
-    }
     @Test
     public void testGetLearnLog(){
         //token不正确
