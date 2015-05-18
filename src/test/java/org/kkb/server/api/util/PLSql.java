@@ -1,6 +1,8 @@
 package org.kkb.server.api.util;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ws.wang on 15-1-28.
@@ -121,10 +123,11 @@ public class PLSql implements OptDB {
         System.out.println();
 
         ResultSet rs=select("select * from sale_students where sale_name='swang' and no='123456'","cms_production");
+        List list=new ArrayList();
         while (rs.next())
         {
-            System.out.print(rs.getInt( 1 ));
-            System.out.println(rs.getString( 2 ));
+            System.out.print(rs.getInt(1));
+            list.add(rs.getInt( 1 ));
         }
         System.out.println();
     }

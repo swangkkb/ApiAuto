@@ -80,6 +80,7 @@ public class ActivateTest {
         response.then().
                 assertThat().statusCode(200).
                 body("user_id", Matchers.equalTo(929244));
+
         PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
         PLSql.delete("delete from  credit_students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
         PLSql.delete("delete from sale_students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
