@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
  *
  * ws.wang
  */
-@Test
+//@Test
 public class CourseAnnouncementTest {
     //公告id不存在
     public void testErrorAnId(){
