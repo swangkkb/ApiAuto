@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
  */
 //@Test
 public class CourseAnnouncementTest {
-    //公告id不存在
+    /*//公告id不存在
     public void testErrorAnId(){
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("announcement_id","");
@@ -40,5 +40,5 @@ public class CourseAnnouncementTest {
                 assertThat().statusCode(200).body("message", Matchers.equalTo("操作成功"));
 
     }
-
+*/
 }

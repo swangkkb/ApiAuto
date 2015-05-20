@@ -54,9 +54,9 @@ public class ActivateTest {
         response.then().
                 assertThat().statusCode(200).
                 body("user_id", Matchers.equalTo(929244));
-        PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='835721919@qq.com' and name='swang'","cms_production");
+       /* PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='835721919@qq.com' and name='swang'","cms_production");
         PLSql.delete("delete from  credit_students where user_id=929244 and school_id=7 and no='835721919@qq.com' and name='swang'","cms_production");
-        PLSql.delete("delete from sale_students where user_id=929244 and school_id=7 and no='835721919@qq.com' and name='swang'","cms_production");
+        PLSql.delete("delete from sale_students where user_id=929244 and school_id=7 and no='835721919@qq.com' and name='swang'","cms_production");*/
 
         //验证该用户是否真的激活
         JSONObject jsonObject1=new JSONObject();
@@ -67,7 +67,11 @@ public class ActivateTest {
         requestSpecification1 .contentType(ContentType.JSON).body(jsonObject1);
         Response response1=requestSpecification1.when()
                 .post("/students/validation");
-        response1.then().assertThat().statusCode(200).body("message", Matchers.equalTo("用户通过验证"));
+        response1.then().assertThat().log().all().statusCode(200).body("message", Matchers.equalTo("用户通过验证"));
+
+        PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='835721919@qq.com' and name='swang'","cms_production");
+        PLSql.delete("delete from  credit_students where user_id=929244 and school_id=7 and no='835721919@qq.com' and name='swang'","cms_production");
+        PLSql.delete("delete from sale_students where user_id=929244 and school_id=7 and no='835721919@qq.com' and name='swang'","cms_production");
     }
     //学号激活
     public void testWithNum(){
@@ -81,10 +85,10 @@ public class ActivateTest {
                 assertThat().statusCode(200).
                 body("user_id", Matchers.equalTo(929244));
 
-        PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
+        /*PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
         PLSql.delete("delete from  credit_students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
         PLSql.delete("delete from sale_students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
-
+*/
         //验证该用户是否真的激活
         JSONObject jsonObject1=new JSONObject();
         jsonObject1.put("access_token",TestConfig.getToken("kauth/authorize?uid=929244&cid=www"));
@@ -95,6 +99,10 @@ public class ActivateTest {
         Response response1=requestSpecification1.when()
                 .post("/students/validation");
         response1.then().assertThat().statusCode(200).body("message", Matchers.equalTo("用户通过验证"));
+        PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
+        PLSql.delete("delete from  credit_students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
+        PLSql.delete("delete from sale_students where user_id=929244 and school_id=7 and no='123456' and name='swang'","cms_production");
+
     }
     //手机号激活
     public void testWithMobile(){
@@ -107,9 +115,9 @@ public class ActivateTest {
         response.then().
                 assertThat().statusCode(200).
                 body("user_id", Matchers.equalTo(929244));
-        PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='18801308505' and name='swang'","cms_production");
+        /*PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='18801308505' and name='swang'","cms_production");
         PLSql.delete("delete from  credit_students where user_id=929244 and school_id=7 and no='18801308505' and name='swang'","cms_production");
-        PLSql.delete("delete from sale_students where user_id=929244 and school_id=7 and no='18801308505' and name='swang'","cms_production");
+        PLSql.delete("delete from sale_students where user_id=929244 and school_id=7 and no='18801308505' and name='swang'","cms_production");*/
 
         //验证该用户是否真的激活
         JSONObject jsonObject1=new JSONObject();
@@ -121,5 +129,8 @@ public class ActivateTest {
         Response response1=requestSpecification1.when()
                 .post("/students/validation");
         response1.then().assertThat().statusCode(200).body("message", Matchers.equalTo("用户通过验证"));
+        PLSql.delete("delete from students where user_id=929244 and school_id=7 and no='18801308505' and name='swang'","cms_production");
+        PLSql.delete("delete from  credit_students where user_id=929244 and school_id=7 and no='18801308505' and name='swang'","cms_production");
+        PLSql.delete("delete from sale_students where user_id=929244 and school_id=7 and no='18801308505' and name='swang'","cms_production");
     }
 }
