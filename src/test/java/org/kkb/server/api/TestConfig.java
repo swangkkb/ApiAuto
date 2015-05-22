@@ -13,7 +13,7 @@ import static com.jayway.restassured.path.json.JsonPath.with;
  */
 public class TestConfig {
 
-    public static final String path="http://w.api-test.kaikeba.cn";
+    public static final String path="http://w.api-f3.kaikeba.cn";
 
     public static RequestSpecification requestSpecification(){
         if(path.contains("cn")){
