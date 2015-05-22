@@ -1,13 +1,15 @@
 package org.kkb.server.api.restAssured.courseVersion;
 
 import com.jayway.restassured.response.Response;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.hamcrest.Matchers;
 import org.kkb.server.api.TestConfig;
 import org.testng.annotations.Test;
 
 
 /**
- *获取相同type的数据
+ *获取模板课或是班次的版本
  * ws.wang
  */
 @Test
@@ -24,8 +26,8 @@ public class GetCourseVsersionsTest {
         response.then().
                 assertThat().statusCode(401);
     }
-    //正确查找
-    public void testSuc(){
+    //正确查找--模板课
+    public void testSucInstructiveCourse(){
         String token=TestConfig.getToken("/kauth/authorize?uid=812277&cid=www&tenant_id=1");
         Response response= TestConfig.getOrDeleteExecu("get", "/course_versions?access_token="+token+"&type=InstructiveCourse");
         response.then().
@@ -33,5 +35,12 @@ public class GetCourseVsersionsTest {
                 body("data",Matchers.notNullValue()).
                 body("data.size()",Matchers.is(101));
     }
-
+    //正确查找--班次
+    public void testSucCourseClass(){
+        String token=TestConfig.getToken("/kauth/authorize?uid=812277&cid=www&tenant_id=1");
+        Response response= TestConfig.getOrDeleteExecu("get", "/course_versions?access_token="+token+"&type=CourseClass");
+        response.then().
+                assertThat().statusCode(200).
+                body("data",Matchers.notNullValue());
+    }
 }
