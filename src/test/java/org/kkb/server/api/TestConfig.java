@@ -5,6 +5,9 @@ import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
 import net.sf.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.jayway.restassured.RestAssured.given;
 import static com.jayway.restassured.path.json.JsonPath.with;
 
@@ -13,7 +16,7 @@ import static com.jayway.restassured.path.json.JsonPath.with;
  */
 public class TestConfig {
 
-    public static final String path="http://w.api-test.kaikeba.cn";
+    public static final String path="http://feature2-api-w1.kaikeba.cn";
 
     public static RequestSpecification requestSpecification(){
         if(path.contains("cn")){

@@ -56,7 +56,7 @@ public class CoutsesTest {
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("access_token",TestConfig.getToken("/kauth/authorize?uid=812277&cid=www&tenant_id=1"));
         jsonObject.put("category_id","2");
-        jsonObject.put("type","InstructiveCourse");
+        jsonObject.put("type","CourseClass");
         jsonObject.put("name","wsInstructiveCourse");
 
         Response response = TestConfig.postOrPutExecu("post", "/courses", jsonObject);
