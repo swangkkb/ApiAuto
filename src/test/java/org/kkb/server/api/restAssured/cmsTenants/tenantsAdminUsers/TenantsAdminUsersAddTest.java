@@ -54,12 +54,4 @@ public class TenantsAdminUsersAddTest {
         tenantsAdminUserId = with(response3.body().asString()).get("data.id");
         userId=with(response3.body().asString()).get("data.user_id");
     }
-
-
-   /* @DataProvider(name = "tenantAdminUsers")
-    public static Object[][] createData() {
-        return new Object[][] {
-                new Object[][]{{new Integer(tenantsAdminUserId),new Integer(userId)}}
-        };
-    }*/
 }

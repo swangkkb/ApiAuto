@@ -33,9 +33,5 @@ public class TenantsAdminUsersZeleteTest {
                 assertThat().statusCode(200).
                 body("message", equalTo("success"));
     }
-   /* @Test(dataProvider = "tenantAdminUsers", dataProviderClass = TenantsAdminUsersAddTest.class)
-    public void BeforClass(Integer n1,Integer n2) {
-        tenantsAdminUserId=n1;
-        System.out.println("delete..........."+n1);
-    }*/
+
 }

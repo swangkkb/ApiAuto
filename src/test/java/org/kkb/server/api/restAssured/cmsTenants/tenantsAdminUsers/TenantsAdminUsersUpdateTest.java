@@ -24,7 +24,7 @@ public class TenantsAdminUsersUpdateTest {
         JSONObject jsonObject1 = JSONObject.fromObject(str1);
         Response response1 = TestConfig.postOrPutExecu("put", "/tenants/1/tenant_admins/"+tenantsAdminUserId, jsonObject1);
         response1.then().
-                assertThat().statusCode(400);
+                assertThat().statusCode(401);
     }
     //正常修改-添加角色
     @Test
@@ -39,9 +39,5 @@ public class TenantsAdminUsersUpdateTest {
         response1.then().log().all().
                 assertThat().statusCode(200).body("data.roles.id", Matchers.hasItems(95));
     }
-   /* @Test(dataProvider = "tenantAdminUsers", dataProviderClass = TenantsAdminUsersAddTest.class)
-    public void BeforClass(Integer n1,Integer n2) {
-        tenantsAdminUserId=n1;
-        userId=n2;
-    }*/
+
 }

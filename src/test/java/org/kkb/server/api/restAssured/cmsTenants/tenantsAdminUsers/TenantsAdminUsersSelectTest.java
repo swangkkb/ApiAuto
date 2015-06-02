@@ -28,10 +28,4 @@ public class TenantsAdminUsersSelectTest {
                 body("message", equalTo("success")).
                 body("data.user_name", Matchers.hasItems("王爽"));
     }
-   /* @Test(dataProvider = "tenantAdminUsers", dataProviderClass = TenantsAdminUsersAddTest.class)
-    public void BeforClass(Integer n1,Integer n2) {
-        tenantsAdminUserId=n1;
-        userId=n2;
-    }*/
-
 }
