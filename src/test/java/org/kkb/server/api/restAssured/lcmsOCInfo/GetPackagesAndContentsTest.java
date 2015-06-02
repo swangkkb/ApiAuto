@@ -19,9 +19,7 @@ public class GetPackagesAndContentsTest {
                 assertThat().statusCode(200).
                 body("data.pack_name", Matchers.hasItems("Word 2013基础互动教程", "Excel 2013基础互动教程", "PowerPoint 2013进阶互动教程", "PowerPoint 2013进阶互动教程", "Word 2013进阶互动教程")).
                 body("data.oc_content.get(0).size()",Matchers.is(33)).
-                body("data.oc_content.get(1).size()",Matchers.is(33)).
-                body("data.oc_content.get(2).size()",Matchers.is(16)).
-                body("data.oc_content.get(3).size()",Matchers.is(37)).
-                body("data.oc_content.get(4).size()",Matchers.is(28));
+                body("data.oc_content.get(2).size()",Matchers.is(22)).
+                body("data.oc_content.get(4).size()",Matchers.is(37));
     }
 }

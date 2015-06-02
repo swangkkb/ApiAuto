@@ -24,7 +24,7 @@ public class TenantsAdminUsersUpdateTest {
         JSONObject jsonObject1 = JSONObject.fromObject(str1);
         Response response1 = TestConfig.postOrPutExecu("put", "/tenants/1/tenant_admins/"+tenantsAdminUserId, jsonObject1);
         response1.then().
-                assertThat().statusCode(401);
+                assertThat().statusCode(400);
     }
     //正常修改-添加角色
     @Test

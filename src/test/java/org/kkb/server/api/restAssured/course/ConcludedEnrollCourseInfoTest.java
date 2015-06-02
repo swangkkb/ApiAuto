@@ -37,7 +37,7 @@ public class ConcludedEnrollCourseInfoTest {
     public void testSuc(){
         Response response= TestConfig.getOrDeleteExecu("get", "/courses/concluded_enrollment_courses?username=swangTest1&password=123456");
         response.then().assertThat().statusCode(200).
-                body("name", Matchers.hasItems("微信营销入门", "编程入门基础", "企业级分布式海量数据分析平台"));
+                body("name", Matchers.hasItems("互联网营销概论", "网站分析工具"));
     }
 
 }
