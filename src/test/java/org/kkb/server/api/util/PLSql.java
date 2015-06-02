@@ -8,7 +8,7 @@ import java.util.List;
  * Created by ws.wang on 15-1-28.
  */
 public class PLSql implements OptDB {
-    private static String  url="jdbc:postgresql://192.168.30.37:5432/";
+    private static String  url="jdbc:postgresql://192.168.30.56:5432/";
     private static String driver="org.postgresql.Driver";
     private static String username="postgres";
     private static String password="123456";

@@ -42,7 +42,7 @@ public class ZhaoZuoTest {
         then()
                 .assertThat().statusCode(200)
                 //.body("name", hasItems("网站设计技术", "响应式Web设计", "响应式Web设计", "微信营销入门", "高级数据库管理", "HTML5 开发技术", "编程入门基础", "MySQL入门到精通（下）", "MySQL入门到精通（下）"));
-                .body("name", Matchers.hasItems("网站设计技术"));
+                .body("name", Matchers.hasItems("高级编程语言"));
 
     }
     @Test
