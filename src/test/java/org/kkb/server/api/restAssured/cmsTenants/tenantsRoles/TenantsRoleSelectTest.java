@@ -30,11 +30,9 @@ public class TenantsRoleSelectTest {
     }
     //查询成功
     public void testSuc(){
-        int  rolesId=TenantsRolesAddTest.rolesId;
         Response response2 = TestConfig.getOrDeleteExecu("get", "tenants/1/tenants_roles?access_token=" + token);
         response2.then().log().all().
                 assertThat().statusCode(200).
-                body("message", equalTo("success")).
-                body("data.id", hasItems(rolesId));
+                body("message", equalTo("success"));
     }
 }
