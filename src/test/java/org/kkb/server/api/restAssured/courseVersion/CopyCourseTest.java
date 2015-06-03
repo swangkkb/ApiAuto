@@ -79,28 +79,9 @@ public class CopyCourseTest {
 
         Response response = TestConfig.postOrPutExecu("post", "/course_versions/courses", jsonObject);
         response.then().
-                assertThat().statusCode(200).
+                assertThat().statusCode(201).
                 body("data.type", Matchers.equalTo("edit")).
                 body("message", Matchers.equalTo("success"));
     }
-    /*@Test(dataProvider = "data")
-    public void testA(String  token,Integer id,String name){
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("access_token",token);
-        jsonObject.put("id",id);
-        jsonObject.put("name",name);
-
-        Response response = TestConfig.postOrPutExecu("post", "/course_versions/courses", jsonObject);
-        response.then().
-                assertThat().statusCode(401);
-        System.out.println();
-    }
-    @DataProvider(name="data")
-    public static Object[][] data(){
-        return new Object[][]{
-                {"DataWithNoName2",1,"ws",200,},
-                {"DataWithNoName3",1,"ws"}
-        };
-    }*/
 
 }

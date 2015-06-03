@@ -16,7 +16,7 @@ public class MicroMajotsIntroTest {
         Response response= TestConfig.getOrDeleteExecu("get", "/micro_major/intro?school_id=227");
         response.then().
                 assertThat().statusCode(200).
-                body("data.micro_majors.short_name.get(0)", Matchers.is("Android移动开发"));
+                body("data.micro_majors.short_name.get(0)", Matchers.is("互联网营销"));
     }
     public void testError(){
         Response response= TestConfig.getOrDeleteExecu("get", "/micro_major/intro?school_id=0");

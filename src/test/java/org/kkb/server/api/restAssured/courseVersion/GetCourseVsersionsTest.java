@@ -31,7 +31,7 @@ public class GetCourseVsersionsTest {
         response.then().
                 assertThat().statusCode(200).
                 body("data",Matchers.notNullValue()).
-                body("data.size()",Matchers.is(101));
+                body("data.size()",Matchers.is(104));
     }
     //正确查找--班次
     public void testSucCourseClass(){

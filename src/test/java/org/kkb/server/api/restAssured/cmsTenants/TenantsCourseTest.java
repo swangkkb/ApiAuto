@@ -38,8 +38,8 @@ public class TenantsCourseTest {
                 assertThat().statusCode(200).
                 body("message", equalTo("success")).
                 body("data.cms_courses.name", Matchers.hasItems("淘宝直通车系统化实战")).
-                body("data.lcms_courses.name", Matchers.hasItems("响应式Web设计")).
-                body("data.tenant_sale_courses.name", Matchers.hasItems("响应式Web设计"));
+                body("data.lcms_courses.name", Matchers.hasItems("移动生产力概论-2U")).
+                body("data.tenant_sale_courses.name", Matchers.hasItems("Word论文排版你能行"));
     }
 
 }
